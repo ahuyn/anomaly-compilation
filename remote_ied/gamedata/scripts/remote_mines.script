@@ -1,0 +1,138 @@
+
+function print_dbg(text, ...)
+	if arti_debug_mcm then
+	    arti_debug_mcm.print_dbg( "remote_mines", text, ...)
+	end
+end
+
+function actor_on_item_use(obj)
+	if obj then
+		local sec = obj:section()
+		if SYS_GetParam(1, sec, "is_detonator") then
+			local delay = SYS_GetParam(2, sec, "det_delay") or 3
+			local delay_rand = math.random() * delay
+			local radius =  SYS_GetParam(2, sec, "det_radius") or 1000
+			-- BEEP
+			print_dbg("BEEP %s", delay_rand)
+			xr_sound.set_sound_play(AC_ID, "pda_beep_2")
+			local type = SYS_GetParam(0, sec, "action")
+			if type == "detonate" then
+				CreateTimeEvent("remote_ied", "trigger_mines"..obj:id(), delay_rand, remote_trigger_mines, radius)
+			elseif type == "disarm" then
+				CreateTimeEvent("remote_ied", "trigger_mines"..obj:id(), 0, remote_disarm_mines, radius)
+			end
+		end
+	end
+end
+
+-- BOOM
+function remote_trigger_mines(radius)
+	print_dbg("BOOM")
+    local mines = remote_scan_mines(radius)
+    for k,v in pairs(mines) do
+        txr_mines.trigger_mine(k)
+    end
+	return true
+end
+
+local EXPLOSIVE_SECTION_REV_LOOKUP = {
+	mine_new_blow 	= 'mine_new',
+	rpg_new_blow 	= 'ied_rpg_new',
+	ied_new_blow 	= 'ied_new',
+}
+-- fizz...
+function remote_disarm_mines(radius)
+    local mines = remote_scan_mines(radius)
+	local count = 0
+    for k,v in pairs(mines) do
+		local mine = level.object_by_id(k)
+		local disarm_section = EXPLOSIVE_SECTION_REV_LOOKUP[mine:section()]
+		print_dbg("disarming %s into %s", mine:section(), disarm_section)
+		local disarm_se = alife_create(disarm_section,mine:position(),mine:level_vertex_id(),mine:game_vertex_id())
+		txr_mines._mines[k] = nil
+		alife_release_id(k)
+		count = count + 1
+    end
+	if count > 0 then
+		news_manager.send_tip(db.actor, game.translate_string("ui_st_disarmed") .. " " ..count, nil, "swiss_knife", 6000)
+	end
+	return true
+end
+
+function remote_scan_mines(radius)
+	local pos = db.actor:position()
+    local mines = {}
+    for mine_id, data in pairs(txr_mines._mines) do
+        local mine = level.object_by_id(mine_id)
+        if pos:distance_to(mine:position()) < radius then
+            mines[mine_id] = mine
+        end
+    end
+    return mines
+end
+function str_plant_remote()
+	return 'st_plant_remote'
+end
+function func_plant_remote(obj) 
+	local original = SYS_GetParam(0, obj:section(), "base_device")
+	if original then
+		local se_obj = alife_create_item(original, db.actor)
+		print_dbg("created %s", se_obj.id)
+		CreateTimeEvent("remote_ied", "trigger_mines"..obj:id(), 0, delay_plant, se_obj.id)
+		alife_release_id(obj:id())
+	end
+end
+
+function delay_plant(id)
+	local obj = level.object_by_id(id)
+	txr_mines.plant_bomb(obj,2,0) 
+	return true
+end
+
+function str_remove_det()
+	return 'st_remove_det'
+end
+function func_remove_det(obj)
+	local original = SYS_GetParam(0, obj:section(), "base_device")
+	if original then
+		give_object_to_actor(original)
+	end
+	alife_release_id(obj:id())
+end
+
+
+function do_nothing()
+	return
+end
+function really_do_nothing()
+	return
+end
+
+TraderAuto = trader_autoinject.update
+function trader_autoinject.update(npc)
+    TraderAuto(npc)
+	local supply_level = trader_autoinject.supply_level(npc, true) or 1
+	if supply_level > 2 then
+		trade_table = {
+			["detonator"] = 1
+		}
+		trader_autoinject.spawn_items(npc, trade_table, true)
+	end
+end
+
+function on_game_start()
+	workshop_autoinject.add_new_recipe(1, "detonator_homemade","1, recipe_basic_0, radio,1,radio2,1,prt_i_copper,1,batteries_dead,1")
+	workshop_autoinject.add_new_recipe(1, "detonator_disarm","2, recipe_advanced_0, detector_radio,1,prt_i_copper,1,batteries_dead,1,mirror,1")
+
+	workshop_autoinject.add_new_recipe(6, "remote_ied","1, recipe_ammo_0, ied_new,1,prt_i_copper,1,radio,1")
+	workshop_autoinject.add_new_recipe(6, "remote_ied","1, recipe_ammo_0, ied_new,1,prt_i_copper,1,radio2,1")
+	workshop_autoinject.add_new_recipe(6, "remote_ied_rpg","1, recipe_ammo_0, ied_rpg_new,1,prt_i_copper,1,radio,1")
+	workshop_autoinject.add_new_recipe(6, "remote_ied_rpg","1, recipe_ammo_0, ied_rpg_new,1,prt_i_copper,1,radio2,1")
+
+	workshop_autoinject.add_new_recipe(6, "ied_new","2, recipe_advanced_2, explo_metalcan_powder,1,explo_balon_gas,1,duct_tape,1,prt_i_fasteners,3")
+	workshop_autoinject.add_new_recipe(6, "ied_new","2, recipe_advanced_2, explo_metalcan_powder,1,kerosene,1,duct_tape,1,prt_i_fasteners,3")
+	workshop_autoinject.add_new_recipe(6, "ied_rpg_new","2, recipe_advanced_1,ammo_og-7b,1,batteries_dead,1,prt_i_copper,1,prt_i_fasteners,1")
+	workshop_autoinject.add_new_recipe(6, "ied_rpg_new","2, recipe_advanced_1,ammo_og-7b_bad,1,batteries_dead,1,prt_i_copper,2,prt_i_fasteners,2")
+
+	RegisterScriptCallback("actor_on_item_use",actor_on_item_use)
+end

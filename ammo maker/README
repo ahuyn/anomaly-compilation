@@ -1,0 +1,9 @@
+Replaces ammo recipes with custom ones.
+
+Ammo now decomposes into 3 major components - casings, powder, and bullets.
+
+Disassembly now yields variable amounts of components. Good ammo yields more components, but it is overall less and random.
+
+Changelog
+
+1.1 - Parts are always spawned in actor inventory (spawn in box has issues). Used less efficient and more consistent formula for spawning ammo.

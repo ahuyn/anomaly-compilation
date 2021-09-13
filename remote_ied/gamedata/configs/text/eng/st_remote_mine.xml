@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="windows-1251"?>
+<string_table>
+
+	<string id="st_plant_remote">
+		<text>plant with remote trigger</text>
+	</string>
+	
+	<string id="st_remove_det">
+		<text>remove remote trigger</text>
+	</string>
+	
+	<string id="ui_st_disarmed">
+		<text>Mines disarmed:</text>
+	</string>
+	
+	<string id="st_detonator_homemade">
+		<text>Improvised detonator</text>
+	</string>
+	<string id="st_detonator_homemade_desc">
+		<text>Improvised explosive detonator constructed from a radio, with the signal artificially boosted using additional capacitors and copper wire. Capable of producing a powerful medium-range radiowave that activates remote triggers of explosives, although not necessarily in a timely fashion.</text>
+	</string>
+	<string id="st_detonator">
+		<text>Remote detonator</text>
+	</string>
+	<string id="st_detonator_desc">
+		<text>Military issue explosive device trigger. Emits a long-range signal that actives remote triggers of planted explosives. High-quality and detonates explosives rapidly.</text>
+	</string>
+	
+	<string id="st_detonator_disarm">
+		<text>Remote Defuser</text>
+	</string>
+	<string id="st_detonator_disarm_desc">
+		<text>This device emits a electromagnetic pulse that disarms any active mines planted, allowing the user to safely pick them up. However, this pulse fries remote triggers.</text>
+	</string>
+
+	<string id="st_remote_ied_rpg">
+		<text>Remote IED (based on OG-7V warhead)</text>
+	</string>
+	<string id="st_remote_ied_rpg_descr">
+		<text>%c[yellow]This IED's trigger mechanism has been replaced with a remote detonator.%c[white]\nImprovised explosive device based on OG-7V warhead and parts of a car battery. It looks like it has been carried around for quite some time and could go off any second. Fortunately, the triggering mechanism ensures that it won't unless the explosive is directly hit by a bullet or subjected to other potent physical force. In the Zone, IEDs are quite popular and Zoners use them for a variety of purposes, from gaining access to closed areas to ambushes. They are also often placed next to mines to greatly amplify the power of explosion. IED can be effectively concealed making it virtually invisible to everyone else.\n \n
+		%c[ui_gray_3]PROPERTIES:\n
+		%c[d_blue] • %c[ui_gray_2] explosive\n
+		%c[d_blue] • %c[ui_gray_2] military item\n
+		%c[d_blue] • %c[ui_gray_2] unnoticeable when placed on ground\n
+		%c[d_purple] • %c[ui_gray_2] triggering mechanism: %c[ui_gray_1]proximity\n
+		%c[d_purple] • %c[ui_gray_2] blast power: %c[ui_gray_1]high\n
+		%c[d_purple] • %c[ui_gray_2] blast radius: %c[ui_gray_1]7.8 m\n
+		%c[d_purple] • %c[ui_gray_2] fragments' radius: %c[ui_gray_1]56 m\n
+		%c[d_purple] • %c[ui_gray_2] av. number of fragments: %c[ui_gray_1]440 (shrapnel)\n
+		%c[d_purple] • %c[ui_gray_2] explosion delay: %c[ui_gray_1]none\n
+		</text>
+	</string>
+	
+	<string id="st_remote_ied">
+		<text>Remote IED (based on chemicals)</text>
+	</string>
+	<string id="st_remote_ied_descr">
+		<text>%c[yellow]This IED's trigger mechanism has been replaced with a remote detonator.%c[white]\nImprovised explosive device produced from various chemical substances, with a broken electrical igniter and in steel ball container. Chemicals used in the device produce intense odour and are heavily toxic. This IED is significantly more powerful than a more common OG-7V version. In the Zone, IEDs are quite popular and Zoners use them for a variety of purposes, from gaining access to closed areas to ambushes. They are also often placed next to mines to greatly amplify the explosion's power. IED can be effectively concealed making it virtually invisible to everyone else.\n \n
+		%c[ui_gray_3]PROPERTIES:\n
+		%c[d_blue] • %c[ui_gray_2] explosive\n
+		%c[d_blue] • %c[ui_gray_2] military item\n
+		%c[d_blue] • %c[ui_gray_2] unnoticeable when placed on ground\n
+		%c[d_purple] • %c[ui_gray_2] triggering mechanism: %c[ui_gray_1]proximity\n
+		%c[d_purple] • %c[ui_gray_2] blast power: %c[ui_gray_1]very high\n
+		%c[d_purple] • %c[ui_gray_2] blast radius: %c[ui_gray_1]12.9 m\n
+		%c[d_purple] • %c[ui_gray_2] fragments radius: 
+		%c[ui_gray_1]74 m\n
+		%c[d_purple] • %c[ui_gray_2] av. number of fragments: %c[ui_gray_1]580 (steel balls)\n
+		%c[d_purple] • %c[ui_gray_2] explosion delay: %c[ui_gray_1]none\n
+		</text>
+	</string>
+</string_table>

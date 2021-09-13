@@ -1,0 +1,79 @@
+
+;;--======< Radio receiver >======--
+[detonator]:booster
+$spawn 						             = "food and drugs\bread"
+cform                                    = skeleton
+visual                                   = dynamics\devices\dev_detector_09\dev_detector_09.ogf
+kind			                         = i_tool
+inv_name                                 = st_detonator
+inv_name_short                           = st_detonator
+description 							 = st_detonator_desc
+icons_texture							 		= ui\detonators
+inv_grid_width                           = 1
+inv_grid_height                          = 1
+inv_grid_x                                             = 1
+inv_grid_y                                             = 0
+inv_weight								 = 0.27
+cost                                     = 4650
+attach_angle_offset			             = -0.287979, 1.560923, 1.544060
+attach_position_offset		             = 0.096910, -0.013594, 0.107925
+attach_bone_name			             = bip01_r_hand
+auto_attach					             = false
+bone_name					             = bip01_r_hand
+position_offset				             = 0.0,0.0,0.0
+angle_offset				             = 1.570790,1.570790,3.92699
+remove_after_use                         = false
+is_detonator                             = true
+det_delay                                = 1
+det_radius                               = 1500
+action                                   = detonate
+
+
+[detonator_homemade]:detonator
+inv_grid_x				                           = 0
+inv_grid_y				                           = 0
+inv_name                                               = st_detonator_homemade
+inv_name_short                                         = st_detonator_homemade
+description                                            = st_detonator_homemade_desc
+cost                                     = 650
+det_delay                                = 4
+det_radius                               = 1000
+
+[detonator_disarm]:detonator
+inv_grid_x                                             = 1
+inv_grid_y                                             = 0
+inv_name                                               = st_detonator_disarm
+inv_name_short                                         = st_detonator_disarm
+description                                            = st_detonator_disarm_desc
+1icon_layer = tch_upgr_ico
+cost                                     = 2900
+det_delay                                = 1
+det_radius                               = 2000
+action                                   = disarm
+
+[remote_ied]:ied_new
+base_device                             = ied_new
+1icon_layer        	                               = tch_upgr_ico
+inv_name                                = st_remote_ied
+inv_name_short                          = st_remote_ied
+description 							= st_remote_ied_descr
+use1_functor                            = remote_mines.str_plant_remote
+use1_action_functor                     = remote_mines.func_plant_remote
+use2_functor                            = remote_mines.str_remove_det
+use2_action_functor                     = remote_mines.func_remove_det
+use3_functor                            = remote_mines.do_nothing 
+use3_action_functor                     = remote_mines.really_do_nothing
+
+[remote_ied_rpg]:ied_rpg_new
+
+base_device                             = ied_rpg_new
+1icon_layer        	                               = tch_upgr_ico
+inv_name                                = st_remote_ied_rpg
+inv_name_short                          = st_remote_ied_rpg
+description 							= st_remote_ied_rpg_descr
+use1_functor                            = remote_mines.str_plant_remote
+use1_action_functor                     = remote_mines.func_plant_remote
+use2_functor                            = remote_mines.str_remove_det
+use2_action_functor                     = remote_mines.func_remove_det
+use3_functor                            = remote_mines.do_nothing 
+use3_action_functor                     = remote_mines.really_do_nothing

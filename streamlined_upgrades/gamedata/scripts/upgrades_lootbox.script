@@ -1,0 +1,5 @@
+function on_game_start()
+        if custom_loot then 
+            custom_loot.add("test_stuff", "upgr_o_2_physical", 1)
+        end
+end

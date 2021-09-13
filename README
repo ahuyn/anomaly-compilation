@@ -1,0 +1,15 @@
+Compilation of small addons I used as a testbed to develop new techniques for creating addons.
+
+These are mostly conflict-free - streamlined upgrades has some conflicts with fetch_list and will interfere with any addons that modify quests or tasks.
+
+AMMO MAKER:
+
+Balanced ammo crafting. Get a proportionate and infuriatingly small amount of components from each box of ammo. Ammo crafting is streamlined into four overarching types.
+
+STREAMLINED UPGRADES:
+
+Removes the bloat from upgrade kits and streamlines everything into six types (3 for outfit, 3 for weapon)
+
+REMOTE IED:
+
+Allows you to upgrade IEDs with remote triggers and detonate them remotely, as well as disarming any planted bombs for recovery.
