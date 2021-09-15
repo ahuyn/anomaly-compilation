@@ -1,0 +1,16 @@
+Small addon that adds sliders for outfit drop chances.
+
+You can customize the outfit drop chance for each outfit type. The default is:
+Light: 70%
+Medium: 50%
+Heavy: 30%
+Exo: 10%
+
+Helmets are unaffected.
+
+Works with Full and Progressive Outfit Drops.
+
+Works best with MCM. Otherwise, change the default_chance in the script.
+
+1.2.1 - Compatibility with Loot Overhaul (don't ask)
+1.2 - Now drops parts when outfits don't drop. More sliders. 
