@@ -47,7 +47,7 @@ function breakdown(ammo, tool)
 
         utils_item.degrade(tool, degrade)
         -- Add extra part on achievement
-        if (game_achievements.has_achievement("recycler")) and (math.random(1,100) <= 33) then
+        if (game_achievements.has_achievement("recycler")) and not is_empty(tbl) and (math.random(1,100) <= 33) then
             local random_key = random_key_table(tbl)
             tbl[random_key] = tbl[random_key] + math.random(1, 5)
         end
