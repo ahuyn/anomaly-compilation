@@ -6,4 +6,5 @@ Disassembly now yields variable amounts of components. Good ammo yields more com
 
 Changelog
 
+1.2 - New icons courtesy of Maid
 1.1 - Parts are always spawned in actor inventory (spawn in box has issues). Used less efficient and more consistent formula for spawning ammo.
