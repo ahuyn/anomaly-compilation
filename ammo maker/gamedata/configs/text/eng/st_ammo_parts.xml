@@ -93,4 +93,8 @@
 	<string id="st_rifle7_ap_rounds_desc">
 		<text>Full-size rifle bullets with embedded alloy penetrators. These are found in special-issue cartridges used by military and special forces to defeat body armor from long range.</text>
 	</string>
+	
+	<string id="st_batch_breakdown">
+		<text>batch disassemble</text>
+	</string>
 </string_table>
