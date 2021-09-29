@@ -64,7 +64,7 @@ function remote_scan_mines(radius)
     local mines = {}
     for mine_id, data in pairs(txr_mines._mines) do
         local mine = level.object_by_id(mine_id)
-        if pos:distance_to(mine:position()) < radius then
+        if mine and pos:distance_to(mine:position()) < radius then
             mines[mine_id] = mine
         end
     end
