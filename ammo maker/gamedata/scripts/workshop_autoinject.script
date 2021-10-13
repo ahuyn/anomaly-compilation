@@ -4,6 +4,7 @@ cr.added = {}
 cr.index_map = {}
 cr.overrides = {}
 cr.new_sections = {}
+cr.deletions = {}
 
 local known_recipe = {}
 
@@ -65,6 +66,13 @@ function add_new_recipe(index, sec, recipe_string)
     end
     local length = #cr.added[sec]
     cr.added[sec][length + 1] = recipe_string
+end
+
+-- Delete any existing recipes not added by autoinject (e.g. that were predefined in craft.ltx)
+function clear_existing_recipes(sec)
+    if not ini_sys:section_exist(sec) then return false end
+    if not cr.deletions[sec] then cr.deletions[sec] = true end
+    return true
 end
 
 -- Specify a crafting recipe that will supersede all other crafting recipes for that item. Arguments similar to above.
@@ -172,6 +180,8 @@ function ui_workshop.UIWorkshopCraft:LoadRecipes()
                     local t = str_explode(value,",")
                     add_recipe(self.recipes, ind, t, ach, id)
                 end
+            elseif cr.deletions[id] then
+                -- do nothing lel
 			elseif ini_sys:section_exist(id) then
 				local t = str_explode(value,",")
                 add_recipe(self.recipes, ind, t, ach, id)

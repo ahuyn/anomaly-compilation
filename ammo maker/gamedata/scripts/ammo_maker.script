@@ -170,11 +170,13 @@ end
 
 function on_game_start()
     part_lookup 	= ini_file_ex("parts\\importer.ltx")
-    local ini_ammo = ini_file("items\\settings\\custom_ammo.ltx")
-    local count = ini_ammo:line_count("custom_ammo_recipes") or 0
-    for i=0,count-1 do
-        local result, id, value = ini_ammo:r_line("custom_ammo_recipes" , i , "", "")
-        print_dbg("assigning ammo %s recipe %s", id, value)
-        workshop_autoinject.add_override_recipe(id, value)
-    end
+    local ini_ammo = ini_file("items\\ammo\\importer.ltx")
+    ini_ammo:section_for_each(function(ammo)
+        local count = ini_ammo:line_count(ammo) or 0
+        for i=0,count-1 do
+            local result, id, value = ini_ammo:r_line(ammo , i , "", "")
+            print_dbg("assigning ammo %s recipe %s", id, value)
+            workshop_autoinject.add_override_recipe(id, value)
+        end
+    end)
 end
