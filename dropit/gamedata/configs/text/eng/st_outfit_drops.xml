@@ -5,7 +5,7 @@
 		<text>Light helmet drop chance</text>
 	</string>
 	<string id="ui_mcm_outfitdrop_helmet_light_chance_desc">
-		<text>Percentage chance to loot balaclavas and stuff from dead stalkers.</text>
+		<text>Percentage chance to loot balaclavas and cloth masks from dead stalkers.</text>
 	</string>
 	<string id="ui_mcm_outfitdrop_helmet_chance">
 		<text>Helmet drop chance</text>

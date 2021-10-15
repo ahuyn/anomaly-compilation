@@ -4,6 +4,11 @@ Ammo now decomposes into 3 major components - casings, powder, and bullets.
 
 Disassembly now yields variable amounts of components. Good ammo yields more components, but it is overall less and random.
 
+Optionals:
+
+bas_ammo: Integrates BAS ammo into the addon (20x70 buck, 23x75 shrapnel/barricade/dart, 9x21 SP10, .338 Fed). Needs testing!
+no recipes mode: Removes unlock requirement for recipes.
+
 Changelog
 
 1.3 - Support for BAS ammo and generic ammo from other addons

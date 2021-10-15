@@ -1,6 +1,6 @@
 Compilation of small addons I used as a testbed to develop new techniques for creating addons.
 
-These are mostly conflict-free - streamlined upgrades has some conflicts with fetch_list and will interfere with any addons that modify quests or tasks.
+These are mostly conflict-free - streamlined upgrades has some conflicts with fetch_list and upgrades and will interfere with any addons that modify quests or tasks.
 
 AMMO MAKER:
 
@@ -13,3 +13,9 @@ Removes the bloat from upgrade kits and streamlines everything into six types (3
 REMOTE IED:
 
 Allows you to upgrade IEDs with remote triggers and detonate them remotely, as well as disarming any planted bombs for recovery.
+
+OUTFIT CHANCE TO DROP:
+
+The beloved balanced drops addon, now part of the family. Customizable drop chances for outfits and helmets.
+
+All RUS translations courtesy of Aonestr
