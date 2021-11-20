@@ -57,7 +57,7 @@ function add_new_recipe(index, sec, recipe_string)
     if not ini_sys:section_exist(sec) then return false end
     if not validate_recipe(recipe_string) then return false end
     if cr.overrides[sec] then
-        print_dbg("Recipe %s already has an override recipe, returning")
+        print_dbg("Recipe %s already has an override recipe, returning", sec)
         return false
     end
     if not cr.added[sec] then
@@ -81,7 +81,7 @@ function add_override_recipe(sec, recipe_string)
     if not ini_sys:section_exist(sec) then return false end
     if not validate_recipe(recipe_string) then return false end
     if cr.added[sec] then
-        print_dbg("Recipe %s already has additive recipes, returning")
+        print_dbg("Recipe %s already has additive recipes, returning", sec)
         return false
     end
     cr.overrides[sec] = recipe_string
