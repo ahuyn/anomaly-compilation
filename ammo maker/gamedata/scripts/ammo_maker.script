@@ -121,8 +121,7 @@ function create_disassemble_list(t)
 end
 
 Disassemble = item_parts.disassembly_item
-function item_parts.disassembly_item(obj, obj_d, batch)
-    
+function wrap_disassemble(obj, obj_d, batch)
 	obj_d = obj_d or item_parts.get_suitable_dtool(obj)
 	if (not item_parts.is_suitable_dtool(obj, obj_d)) then
 		if IsWeapon(obj) then
@@ -135,6 +134,24 @@ function item_parts.disassembly_item(obj, obj_d, batch)
 
     if part_lookup:section_exist(obj:section()) then
         breakdown(obj, obj_d, batch)
+    else
+        item_parts.disassembly_item(obj, obj_d)
+    end
+end
+
+function item_parts.disassembly_item(obj, obj_d)
+	obj_d = obj_d or item_parts.get_suitable_dtool(obj)
+	if (not item_parts.is_suitable_dtool(obj, obj_d)) then
+		if IsWeapon(obj) then
+			actor_menu.set_item_news('fail', 'weapon', "st_dis_text_3", " ")
+		else
+			news_manager.send_tip(db.actor, game.translate_string("st_news_dis_items"), nil, "swiss_knife", 6000)
+		end
+		return
+	end
+
+    if part_lookup:section_exist(obj:section()) then
+        breakdown(obj, obj_d, false)
     else
         Disassemble(obj, obj_d)
     end
@@ -161,7 +178,7 @@ ActionCustom = ui_inventory.UIInventory.Action_Custom
 function ui_inventory.UIInventory:Action_Custom(obj, bag, temp, i)
 	obj = self:CheckItem(obj,"Action_Custom " .. i)
 	if i == 4 and IsAmmo(obj) then -- check unjam
-		item_parts.disassembly_item(obj, nil, true)
+		wrap_disassemble(obj, nil, true)
 	else
 		ActionCustom(self, obj, bag, temp, i)
 	end

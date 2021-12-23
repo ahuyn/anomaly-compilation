@@ -95,6 +95,6 @@
 	</string>
 	
 	<string id="st_batch_breakdown">
-		<text>batch disassemble</text>
+		<text>batch disassemble [!]</text>
 	</string>
 </string_table>

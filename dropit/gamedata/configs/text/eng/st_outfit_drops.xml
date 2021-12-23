@@ -43,6 +43,12 @@
 	<string id="ui_mcm_outfitdrop_parts_chance_desc">
 		<text>Percentage chance to find parts when outfits don't spawn.</text>
 	</string>
+	<string id="ui_mcm_outfitdrop_debug">
+		<text>Debug printing</text>
+	</string>
+	<string id="ui_mcm_outfitdrop_parts_debug_desc">
+		<text>You know what this does by now.</text>
+	</string>
 	<string id="ui_mcm_menu_outfitdrop">
 		<text>Outfit drops</text>
 	</string>
