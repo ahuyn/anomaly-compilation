@@ -24,6 +24,16 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
+        with:
+          submodules: recursive
+        
+      - name: Install dependencies
+        id: dep
+        run: |
+          cp -r anomaly-dependencies/workshop_autoinject/gamedata ammo_maker
+          cp -r anomaly-dependencies/trader_autoinject/gamedata remote_ied
+          cp -r anomaly-dependencies/workshop_autoinject/gamedata remote_ied
+          cp -r anomaly-dependencies/workshop_autoinject/gamedata streamlined_upgrades
 
       - name: Get current date
         id: date
