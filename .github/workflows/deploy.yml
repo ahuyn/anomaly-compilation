@@ -30,7 +30,7 @@ jobs:
       - name: Install dependencies
         id: dep
         run: |
-          cp -r anomaly-dependencies/workshop_autoinject/gamedata ammo_maker
+          cp -r anomaly-dependencies/workshop_autoinject/gamedata "ammo maker"
           cp -r anomaly-dependencies/trader_autoinject/gamedata remote_ied
           cp -r anomaly-dependencies/workshop_autoinject/gamedata remote_ied
           cp -r anomaly-dependencies/workshop_autoinject/gamedata streamlined_upgrades
