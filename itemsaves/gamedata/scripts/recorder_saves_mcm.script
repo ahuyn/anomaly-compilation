@@ -1,0 +1,119 @@
+local savedata = {}
+
+function check_save(obj)
+    local save_sec = SYS_GetParam(0, obj:section(), "save_sec")
+    if save_sec and get_config("enabled") then
+        return game.translate_string(save_sec)
+    end
+end
+
+function save(obj)
+    if SYS_GetParam(1, obj:section(), "expire") then
+        alife_release(obj)
+    end
+    exec_console_cmd(string.format("save %s - %s - %s  - save", (alife():actor():character_name() or "player"), get_datestring(), math.random(1000)))
+    news_manager.send_tip(db.actor, game.translate_string("st_info_backup"), nil, "swiss_knife", 6000)
+end
+
+-- create tempsave on drinking thing
+function on_item_use(obj)
+    if SYS_GetParam(1, obj:section(), "quicksave") then
+        exec_console_cmd(string.format("save %s - quicksave", (alife():actor():character_name() or "player")))
+    end
+end
+
+QuickSave = level_input.action_quick_save
+function level_input.action_quick_save(dik,bind)
+    if not get_config("enabled") then QuickSave(dik, bind) 
+    else
+        local schnapps = db.actor:object("schnapps")
+        if schnapps then
+            db.actor:eat(schnapps)
+        else
+            QuickSave(dik, bind)
+        end
+    end
+end
+
+TaskCallback = task_manager.task_callback
+function task_manager.task_callback(tsk, state)
+    TaskCallback(tsk, state)
+    if state == task.completed then
+        savedata.weight = savedata.weight and savedata.weight + 1 or 1 
+        local chance = savedata.weight / get_config("interval")
+        if math.random() < chance then
+            give_drive()
+            savedata.weight = 0
+        end 
+    end
+end
+
+function get_datestring()
+    local time = game.get_game_time()
+    
+	local Y, M, D, h, m, s, ms = 0, 0, 0, 0, 0, 0, 0
+	Y, M, D, h, m, s, ms = time:get(Y, M, D, h, m, s, ms)
+	return string.format("%s-%s-%s %02d%02d%02d", Y, M, D, h, m, s)
+end
+
+function save_state(mdata) 
+	mdata.savedata = savedata
+end
+
+function load_state(mdata) 
+	savedata = mdata.savedata or {}
+end
+
+function give_drive()
+    if get_config("enabled") then 
+        local se_item = alife_create_item("backup_drive", db.actor)
+        news_manager.relocate_item(db.actor,"in","backup_drive",1)
+    end
+end
+
+function on_before_save_input(flags, typ, text)
+    -- no manual saves, quick saves for you
+    if get_config("enabled") and not (DEV_DEBUG or DEV_DEBUG_DEV) then
+        exec_console_cmd("main_menu off")
+        flags.ret = true
+    end
+end
+
+function actor_on_first_update()
+    if not savedata.freebies and get_config("enabled") then
+        for i=1,5 do
+            local se_item = alife_create_item("backup_drive", db.actor)
+        end
+        savedata.freebies = true
+        news_manager.send_tip(db.actor, game.translate_string("st_freebies"), nil, "swiss_knife", 6000)
+
+    end
+end
+
+-- If you don't use MCM, change your defaults from here.
+local defaults = {
+    enabled				= true,
+    interval	    			= 5
+}
+function get_config(key)
+    if ui_mcm then return ui_mcm.get("itemsaves/"..key) else return defaults[key] end
+end
+
+function on_mcm_load()
+    op = { id= "itemsaves",sh=true ,gr={
+            { id= "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_itemsaves_title",size= {512,50},spacing= 20 },
+            {id = "enabled", type = "check", val = 1, def=true},
+            {id = "interval", type = "track", val = 2, min=1,max=10,step=1, def = 4},
+        }
+    }
+    return op
+end
+function on_game_start()
+	RegisterScriptCallback("save_state",save_state)
+	RegisterScriptCallback("load_state",load_state)
+	RegisterScriptCallback("actor_on_item_use",on_item_use)
+	RegisterScriptCallback("on_before_save_input",on_before_save_input)
+    RegisterScriptCallback("actor_on_first_update", actor_on_first_update)
+    workshop_autoinject.add_new_recipe(5, "schnapps", "4, recipe_drug_0, flask,3,drug_sleepingpills,5,caffeine,5")
+
+end

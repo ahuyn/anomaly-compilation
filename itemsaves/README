@@ -1,0 +1,9 @@
+Adds in-game items to save the game. An economy-based alternative to ironman.
+
+There are two primary items.
+
+First is the flash drive. This allows you to make hard saves of your character. Using a flash drive creates a timestamped save of your character. You start with five (will be given for free on start or installation) and randomly acquire them as tasks are completed.
+
+Second is the Hasty Preservation drink. This drink can be crafted cheaply and provides the effects of water and a bit more. Using this creates one (1) quicksave. Drinking it again will override the created quicksave.
+
+Note that saves are based on your character's name. If you name two characters the same name, I can't guarantee your saves won't be overwritten.

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="windows-1251"?>
+
+<string_table>
+
+	<!--COMMON-->
+	<string id="st_backup">
+		<text>PDA backup drive</text>
+	</string>
+	<string id="st_backup_descr">
+		<text>Blank external drive with a connecting wire compatible with the PDAs of the Zone. These are used to create backup images of the PDAs that stalkers use. When used, the information in the PDA is converted to a cold storage format and written into the drive, creating an exact copy of the PDA's contents at that point in time. They can be used to restore data in case anything happens to the PDA, or the owner. Such PDA drives are used frequently by stalkers to create backups of their PDA in case they lose their PDA, or if they bite the dust and need to pass information onto their companions.</text>
+	</string>
+	<string id="st_savegame">
+		<text>save data</text>
+	</string>
+	<string id="st_af_memory">
+		<text>Memory Stone</text>
+	</string>
+	<string id="st_af_memory_desc">
+		<text>Unique artifact transmuted from the 'Volat Emerald'. \n \n This artifact is devoid of any actively useful properties - laboratory results show no anomalous or mundane properties of any kind, in fact, besides the constantly swirling storm in the center. Legend has it that this artifact was found only once, by the mythical Yuri Semetskiy, the man who learned to cheat death and was punished with an eternity trapped in the Zone.</text>
+	</string>
+	<string id="st_savegame_af">
+		<text>gaze into the artifact</text>
+	</string>
+	<string id="st_schnapps">
+		<text>'Hasty Preservation'</text>
+	</string>
+	<string id="st_schnapps_descr">
+		<text>Stimulating brew devised by folk craftsmen. This is a bitter drink containing concentrated caffeine and alzopram. Calms the nerves and stimulates the body. Best taken before getting into serious trouble.</text>
+	</string>
+	<string id="st_save_err">
+		<text>Cannot save - backup drive required.</text>
+	</string>
+	<string id="st_freebies">
+		<text>You have been granted 5 free backup drives.</text>
+	</string>
+	<string id="st_info_backup">
+		<text>[INFO] Backup successfully created.</text>
+	</string>
+	<string id="st_info_backup_artifact">
+		<text>You feel a strange connection to an entity outside your body.</text>
+	</string>
+    
+	<string id="ui_mcm_menu_itemsaves">
+		<text>Item Saves</text>
+	</string>
+	<string id="ui_mcm_menu_itemsaves_title">
+		<text>Item Based Saving</text>
+	</string>
+	<string id="ui_mcm_itemsaves_title">
+		<text>Item Based Saving</text>
+	</string>
+	<string id="ui_mcm_itemsaves_enabled">
+		<text>Enable feature</text>
+	</string>
+	<string id="ui_mcm_itemsaves_enabled_desc">
+		<text>Makes it so saving is only possible with the use of backup drive items. If disabled, allows you to play as normal.</text>
+	</string>
+	<string id="ui_mcm_itemsaves_interval">
+		<text>Max tasks between saves</text>
+	</string>
+	<string id="ui_mcm_itemsaves_interval_desc">
+		<text>Save items will be granted at max every X tasks.</text>
+	</string>
+</string_table>
