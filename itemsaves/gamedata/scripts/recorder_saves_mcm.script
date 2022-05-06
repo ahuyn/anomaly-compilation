@@ -2,7 +2,7 @@ local savedata = {}
 
 function check_save(obj)
     local save_sec = SYS_GetParam(0, obj:section(), "save_sec")
-    if save_sec and get_config("enabled") then
+    if save_sec and get_config("enabled") and validate_save("ignore")then
         return game.translate_string(save_sec)
     end
 end
@@ -17,9 +17,21 @@ end
 
 -- create tempsave on drinking thing
 function on_item_use(obj)
-    if SYS_GetParam(1, obj:section(), "quicksave") then
+    if SYS_GetParam(1, obj:section(), "quicksave") and validate_save("quickignore") then
         exec_console_cmd(string.format("save %s - quicksave", (alife():actor():character_name() or "player")))
     end
+end
+
+function validate_save(key)
+    if not get_config(key) then return true 
+    else
+        local flags = {ret = true, item_allow = true}
+        SendScriptCallback("on_before_save_input", flags, 3, game.translate_string("st_ui_save"))
+        if (flags.ret == true) then 
+            return true
+        end
+    end
+    return false
 end
 
 QuickSave = level_input.action_quick_save
@@ -29,8 +41,6 @@ function level_input.action_quick_save(dik,bind)
         local schnapps = db.actor:object("schnapps")
         if schnapps then
             db.actor:eat(schnapps)
-        else
-            QuickSave(dik, bind)
         end
     end
 end
@@ -73,7 +83,7 @@ end
 
 function on_before_save_input(flags, typ, text)
     -- no manual saves, quick saves for you
-    if get_config("enabled") and not (DEV_DEBUG or DEV_DEBUG_DEV) then
+    if get_config("enabled") and not (DEV_DEBUG or DEV_DEBUG_DEV) and not flags.item_allow then
         exec_console_cmd("main_menu off")
         flags.ret = true
     end
@@ -93,6 +103,8 @@ end
 -- If you don't use MCM, change your defaults from here.
 local defaults = {
     enabled				= true,
+    ignore				= false,
+    quickignore				= true,
     interval	    			= 5
 }
 function get_config(key)
@@ -103,6 +115,8 @@ function on_mcm_load()
     op = { id= "itemsaves",sh=true ,gr={
             { id= "title",type= "slide",link= "ui_options_slider_player",text="ui_mcm_itemsaves_title",size= {512,50},spacing= 20 },
             {id = "enabled", type = "check", val = 1, def=true},
+            {id = "ignore", type = "check", val = 1, def=false},
+            {id = "quickignore", type = "check", val = 1, def=true},
             {id = "interval", type = "track", val = 2, min=1,max=10,step=1, def = 4},
         }
     }

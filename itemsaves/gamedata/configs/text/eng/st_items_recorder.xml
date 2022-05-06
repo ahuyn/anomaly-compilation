@@ -55,6 +55,18 @@
 	<string id="ui_mcm_itemsaves_enabled_desc">
 		<text>Makes it so saving is only possible with the use of backup drive items. If disabled, allows you to play as normal.</text>
 	</string>
+	<string id="ui_mcm_itemsaves_ignore">
+		<text>Ignore other saving restrictions</text>
+	</string>
+	<string id="ui_mcm_itemsaves_ignore_desc">
+		<text>Ignore other restrictions on saving such as campfire, agony, timer.</text>
+	</string>
+	<string id="ui_mcm_itemsaves_quickignore">
+		<text>Quicksave ignore other saving restrictions</text>
+	</string>
+	<string id="ui_mcm_itemsaves_quickignore_desc">
+		<text>Ignore other restrictions on saving such as campfire, agony, timer.</text>
+	</string>
 	<string id="ui_mcm_itemsaves_interval">
 		<text>Max tasks between saves</text>
 	</string>
