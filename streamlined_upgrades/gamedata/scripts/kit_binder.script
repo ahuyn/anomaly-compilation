@@ -2,9 +2,6 @@ local tool_map = {}
 local do_not_reroll = {}
 gc = game.translate_string
 enable_debug = false
-function print_dbg(txt, ...)
-    arti_debug_mcm.print_dbg("streamlined_upgrades", txt, ...)
-end
 -- class
 function bind(obj)
     obj:bind_object(kit_binder(obj))
@@ -24,12 +21,10 @@ function kit_binder:update(delta)
     local obj  = self.object
     local id = obj:id()
     if not self.first_update then
-        print_dbg("First update")
         self.first_update = true
         local sec = obj:section()
         if do_not_reroll[sec] then return end
         local roll = math.random(100)
-        print_dbg("Destroying %s, roll is %s", sec, roll)
         local roll_chance = upgrades_mcm.get_config("drop") or 25
         if roll <= roll_chance then
             local new_sec = convert_kit(sec)
@@ -42,7 +37,6 @@ function kit_binder:update(delta)
             else
                 se_itm = alife_create(new_sec, pos, lvid, gvid)
             end
-            print_dbg("Creating %s in place", new_sec)
         end
         alife_release_id(id)
     end
@@ -134,7 +128,6 @@ function on_game_start()
         tool_map[id] = value
         do_not_reroll[value] = true
         workshop_autoinject.remove_existing_recipes(id)
-        print_dbg("processed %s = %s", id, value)
     end
     
 	local ini_recipe = ini_file("items\\settings\\upgrade_recipes.ltx")
