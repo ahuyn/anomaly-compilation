@@ -41,7 +41,7 @@ jobs:
         run: echo "::set-output name=today::$(date +'%Y.%m.%d')"
 
       - name: Zip folder
-        run: zip -r $RELEASE_NAME.zip README "ammo maker" "remote_ied" "streamlined_upgrades" "dropit" "itemsaves"
+        run: zip -r $RELEASE_NAME.zip README "ammo maker" "remote_ied" "streamlined_upgrades" "dropit" "itemsaves" "toolkit_workshop"
         env: 
           RELEASE_NAME: ${{ github.event.repository.name }}.${{ steps.date.outputs.today }}
       

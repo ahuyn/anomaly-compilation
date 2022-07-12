@@ -1,0 +1,69 @@
+local from_kit = false
+
+local kit_mapping = {
+	["itm_basickit"] = 1,
+	["itm_advancedkit"] = 2,
+	["itm_expertkit"] = 3,
+	["itm_drugkit"] = 4,
+	["itm_ammokit"] = 5
+}
+
+local temp_table = {false, false, false, false, false}
+
+local workshop_ui_ref
+
+function start_workshop(obj)
+	if not from_kit then from_kit = true end
+	local sec = obj:section()
+	local table2 = dup_table(temp_table)
+	table2[kit_mapping[sec]] = true
+	local hud = get_hud()
+	if hud then
+		hud:HideActorMenu()
+	end
+	
+	workshop_ui_ref = ui_workshop.get_workshop_ui(_ui1, nil, table2, false)
+	if (workshop_ui_ref) then
+		workshop_ui_ref:ShowDialog(true)
+	end	
+end
+
+NameCustom = ui_inventory.UIInventory.Name_Custom
+function ui_inventory.UIInventory:Name_Custom(obj, bag, temp, i)
+	obj = self:CheckItem(obj,"Name_Custom " .. i)
+	if i == 1 and kit_mapping[obj:section()] then 
+		return "st_ui_craft"
+	else
+		return NameCustom(self, obj, bag, temp, i)
+	end
+end
+
+ActionCustom = ui_inventory.UIInventory.Action_Custom
+function ui_inventory.UIInventory:Action_Custom(obj, bag, temp, i)
+	obj = self:CheckItem(obj,"Action_Custom " .. i)
+	if i == 1 and kit_mapping[obj:section()] then 
+		start_workshop(obj)
+	else
+		ActionCustom(self, obj, bag, temp, i)
+	end
+end
+
+ButtonRepair = ui_workshop.UIWorkshop.OnButton_repair
+function ui_workshop.UIWorkshop:OnButton_repair()
+	if from_kit then return end
+	ButtonRepair(self)
+end
+ButtonUpgrade = ui_workshop.UIWorkshop.OnButton_upgrade
+function ui_workshop.UIWorkshop:OnButton_upgrade()
+	if from_kit then return end
+	ButtonUpgrade(self)
+end
+
+
+WorkshopClose = ui_workshop.UIWorkshop.Close
+function ui_workshop.UIWorkshop:Close()
+	if from_kit then 
+		from_kit = false 
+	end
+	WorkshopClose(self)
+end
