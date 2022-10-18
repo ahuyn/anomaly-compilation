@@ -1,9 +1,4 @@
-local enable_debug = false
-function print_dbg(fmt,...)
-	if enable_debug then
-		printf("-utils_item | " .. fmt,...)
-	end
-end
+
 
 ----------------------------------------------------------------------
 -- Utilities
@@ -33,20 +28,23 @@ local upg_ind = {
 	["f"] = 6,
 }
 local upg_prop_tool = {
-	["prop_weight"]	            =	"upgr_w_^d_external",	    --Weight
-	["prop_silencer"]	        =	"upgr_w_^d_external",	   	--Muffler
-	["prop_underbarrel_slot"]	=	"upgr_w_^d_external",	    --Mount the grenade launcher
 	["prop_reliability"]	    =	"upgr_w_^d_internal",	    --Reliability
-	["prop_bullet_speed"]	    =	"upgr_w_^d_external",	    --Flatness
 	["prop_recoil"]	            =	"upgr_w_^d_internal",	    --Recoil
-	["prop_ammo_size"]	        =	"upgr_w_^d_external",	    --Cartridges
-	["prop_grenade_launcher"]	=	"upgr_w_^d_external",	    --Subbarrel
-	["prop_scope_4x"]	        =	"upgr_w_^d_optical",	    --Sight4
-	["prop_scope_1.6x"]	        =	"upgr_w_^d_optical",	    --Sight1.6
 	["prop_rpm"]	            =	"upgr_w_^d_internal",	    --Rateoffire
 	["prop_calibre"]	        =	"upgr_w_^d_internal",	    --caliber(9x18,5x45)
+	["prop_autofire"]	        =	"upgr_w_^d_internal",	    --Fully automatic firemode
+	["prop_3xfire"]	            =	"upgr_w_^d_internal",	    --Three shots automatic shooting mode
+	["prop_weight"]	            =	"upgr_w_^d_external",	    --Weight
+	["prop_bullet_speed"]	    =	"upgr_w_^d_external",	    --Flatness
+	["prop_ammo_size"]	        =	"upgr_w_^d_external",	    --Cartridges
 	["prop_dispersion"]	        =	"upgr_w_^d_external",	    --Accuracy
-	["prop_inertion"]	        =	"upgr_w_^d_external",	    --Convenience
+	["prop_inertion"]	        =	"upgr_w_^d_external",	    --Handling
+	["prop_no_buck"]	        =	"upgr_w_^d_external",	    --Do not shoot a fraction.
+	["prop_underbarrel_slot"]	=	"upgr_w_^d_optical",	    --Mount the grenade launcher
+	["prop_silencer"]	        =	"upgr_w_^d_optical",	   	--Muffler
+	["prop_grenade_launcher"]	=	"upgr_w_^d_optical",	    --Subbarrel
+	["prop_scope_4x"]	        =	"upgr_w_^d_optical",	    --Sight4
+	["prop_scope_1.6x"]	        =	"upgr_w_^d_optical",	    --Sight1.6
 	["prop_autolockscope"]	    =	"upgr_w_^d_optical",	    --Auto Capture Targets in Optics
 	["prop_scope_1.5x"]	        =	"upgr_w_^d_optical",	    --Reflex Sight 1.5x
 	["prop_scope_5x"]	        =	"upgr_w_^d_optical",	    --Sight 5x
@@ -54,21 +52,14 @@ local upg_prop_tool = {
 	["prop_scope_10x"]	        =	"upgr_w_^d_optical",	    --Sight 10x
 	["prop_scope_12x"]	        =	"upgr_w_^d_optical",	    --Scope 12x
 	["prop_scope_15x"]	        =	"upgr_w_^d_optical",	    --Scope 15x
-	["prop_scope_attach"]	    =	"upgr_w_^d_external",    	--Mount for optics
+	["prop_scope_attach"]	    =	"upgr_w_^d_optical",    	--Mount for optics
 	["prop_scope"]	            =	"upgr_w_^d_optical",	    --Adjustable range finder sight
 	["prop_contrast"]	        =	"upgr_w_^d_optical",	    --Increase the contrast of sight
-	["prop_autofire"]	        =	"upgr_w_^d_internal",	    --Fully automatic firemode
-	["prop_3xfire"]	            =	"upgr_w_^d_internal",	    --Three shots automatic shooting mode
 	["prop_nightvision"]	    =	"upgr_w_^d_optical",	    --Installing NVD
-	["prop_no_buck"]	        =	"upgr_w_^d_external",	    --Do not shoot a fraction.
 	
 	["prop_armor"]	            =	"upgr_o_^d_physical",	    --armor
 	["prop_damage"]	            =	"upgr_o_^d_physical",	    --Damage
 	["prop_durability"]	        =	"upgr_o_^d_physical",	    --wear resistance (strength)
-	["prop_restore_bleeding"]	=	"upgr_o_^d_utility",	    --reduce bleeding
-	["prop_restore_health"]	    =	"upgr_o_^d_utility",	    --Health Restoration
-	["prop_power"]	            =	"upgr_o_^d_utility",	    --East. stamina
-	["prop_tonnage"]	        =	"upgr_o_^d_utility",	    --Carry weight
 	["prop_chem"]	            =	"upgr_o_^d_magical",	    --chemical protection
 	["prop_radio"]	            =	"upgr_o_^d_magical",	    --radio protection
 	["prop_thermo"]	            =	"upgr_o_^d_magical",	    --thermo protection
@@ -78,6 +69,10 @@ local upg_prop_tool = {
 	["prop_weightoutfit"]	    =	"upgr_o_^d_utility",	    --body armor weight
 	--["prop_autolock"]	        =	"",							--Avtozapvatgoal
 	["prop_sprint"]	            =	"upgr_o_^d_utility",	    --Run in the exoskeleton
+	["prop_restore_bleeding"]	=	"upgr_o_^d_utility",	    --reduce bleeding
+	["prop_restore_health"]	    =	"upgr_o_^d_utility",	    --Health Restoration
+	["prop_power"]	            =	"upgr_o_^d_utility",	    --East. stamina
+	["prop_tonnage"]	        =	"upgr_o_^d_utility",	    --Carry weight
 	--["prop_scanner"]	        =	"",							--infra red scanner
 	
 	["prop_binoc_zoom"]	        =	"upgr_w_^d_optical",	        --Sight

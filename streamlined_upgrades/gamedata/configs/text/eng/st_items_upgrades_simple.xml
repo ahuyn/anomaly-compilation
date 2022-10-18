@@ -69,14 +69,18 @@
             %c[d_cyan] • %c[ui_gray_2] Flatness\n
             %c[d_cyan] • %c[ui_gray_2] Accuracy\n
             %c[d_cyan] • %c[ui_gray_2] Handling\n
-            %c[d_cyan] • %c[ui_gray_2] Weapon weight\n
-            %c[d_cyan] • %c[ui_gray_2] Attachment points\n</text>
+            %c[d_cyan] • %c[ui_gray_2] Weapon weight\n</text>
     </string>
 	<string id="st_upgr_w_optical">
-		<text>Optical scope upgrade kit</text>
+		<text>Accessory mounting kit</text>
 	</string>
 	<string id="st_upgr_w_optical_desc">
-		<text>This package contains high quality lenses and optics suitable for replacement on binoculars and rifle scopes. With this kit you should be able to upgrade any optical instrument.</text>
+		<text>This package contains high quality lenses and optics suitable for replacement on binoculars and rifle scopes, as well as various mounts and thread points. With this kit you should be able to upgrade weapons to accept a variety of attachments and optics.\n\n
+            %c[yellow]Can be used to upgrade:\n
+            %c[d_cyan] • %c[ui_gray_2] Suppressor mount\n
+            %c[d_cyan] • %c[ui_gray_2] Grenade Launcher mount\n
+            %c[d_cyan] • %c[ui_gray_2] Scope mount\n
+            %c[d_cyan] • %c[ui_gray_2] Scope upgrades\n</text>
     </string>
 
 	<string id="st_try_combine">
@@ -85,6 +89,17 @@
 	<string id="st_try_downgrade">
 		<text>downgrade</text>
 	</string>
+	<string id="st_kit_assemble">
+		<text>assemble kits</text>
+	</string>
+	<string id="st_kit_assemble_all">
+		<text>assemble kits (all)</text>
+	</string>
+
+	<string id="st_kit_newstip">
+		<text>Assembled %s packages into %s of %s.</text>
+	</string>
+
 	<string id="ui_mcm_menu_supgrades">
 		<text>Upgrades</text>
 	</string>
