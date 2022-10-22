@@ -48,6 +48,13 @@ function ui_inventory.UIInventory:Action_Custom(obj, bag, temp, i)
 	end
 end
 
+DB_Custom = ui_inventory.UIInventory.DB_Custom
+function ui_inventory.UIInventory:DB_Custom(obj, bag, temp, i)
+	obj = self:CheckItem(obj,"DB_Custom " .. i)
+	
+	return i == 1 and kit_mapping[obj:section()] or DB_Custom(self, obj, bag, temp, i)
+end
+
 ButtonRepair = ui_workshop.UIWorkshop.OnButton_repair
 function ui_workshop.UIWorkshop:OnButton_repair()
 	if from_kit then return end
