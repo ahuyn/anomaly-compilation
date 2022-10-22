@@ -1,72 +1,136 @@
-local tool_map = {}
-local do_not_reroll = {}
+
+local ini_mapping = ini_file("items\\settings\\upgrade_mapping.ltx")
 gc = game.translate_string
-enable_debug = false
--- class
-function bind(obj)
-    obj:bind_object(kit_binder(obj))
-end
 
 function convert_kit(sec)
-    return tool_map[sec] or "upgr_w_1_external"
+    return ini_mapping:r_string_ex(sec, "kit")
 end
 
-class "kit_binder" (object_binder)
+-- class "kit_binder" (object_binder)
 
-function kit_binder:__init(obj) super(obj)
-	self.first_update = nil
-end
+-- function kit_binder:__init(obj) super(obj)
+-- 	self.first_update = nil
+-- end
 
-function kit_binder:update(delta)
-    local obj  = self.object
-    local id = obj:id()
-    if not self.first_update then
-        self.first_update = true
-        local sec = obj:section()
-        if do_not_reroll[sec] then return end
-        local roll = math.random(100)
-        local roll_chance = upgrades_mcm.get_config("drop") or 25
-        if roll <= roll_chance then
-            local new_sec = convert_kit(sec)
-            local pos = obj:position()
-            local lvid = obj:level_vertex_id()
-            local gvid = obj:game_vertex_id()
-            local pid = obj:parent() and obj:parent():id() or nil
-            if pid then
-                se_itm = alife_create(new_sec, pos, lvid, gvid, pid)
-            else
-                se_itm = alife_create(new_sec, pos, lvid, gvid)
-            end
+-- function kit_binder:update(delta)
+--     local obj  = self.object
+--     local id = obj:id()
+--     if not self.first_update then
+--         self.first_update = true
+--         local sec = obj:section()
+--         if do_not_reroll[sec] then return end
+--         local roll = math.random(100)
+--         local roll_chance = upgrades_mcm.get_config("drop") or 25
+--         if roll <= roll_chance then
+--             local new_sec = convert_kit(sec)
+--             local pos = obj:position()
+--             local lvid = obj:level_vertex_id()
+--             local gvid = obj:game_vertex_id()
+--             local pid = obj:parent() and obj:parent():id() or nil
+--             if pid then
+--                 se_itm = alife_create(new_sec, pos, lvid, gvid, pid)
+--             else
+--                 se_itm = alife_create(new_sec, pos, lvid, gvid)
+--             end
+--         end
+--         alife_release_id(id)
+--     end
+-- end
+
+-- function kit_binder:reload(section)
+--     object_binder.reload(self, section)
+-- end
+
+-- function kit_binder:reinit()
+--     object_binder.reinit(self)
+-- end
+
+-- function kit_binder:net_spawn(se_abstract)
+--     if not(object_binder.net_spawn(self, se_abstract)) then
+--         return false
+--     end
+--     return true
+-- end
+
+-- function kit_binder:net_destroy()
+-- 	object_binder.net_destroy(self)
+-- end
+
+-- function kit_binder:save(stpk)
+-- end
+
+-- function kit_binder:load(stpk)
+-- end
+
+-- assemble partial kits
+function can_assemble(item)
+    local sec = item:section()
+    local type = convert_kit(sec)
+    if not type then return false end
+    local num_kits = 0
+    local function search(temp, item)
+        local item_sec = item:section()
+        if convert_kit(item_sec) == type then
+            num_kits = num_kits + 1
         end
-        alife_release_id(id)
+    end
+    db.actor:iterate_inventory(search)
+    return num_kits >= 3
+end
+
+function str_assemble(item)
+    if can_assemble(item) then
+        return "st_kit_assemble"
     end
 end
 
-function kit_binder:reload(section)
-    object_binder.reload(self, section)
-end
-
-function kit_binder:reinit()
-    object_binder.reinit(self)
-end
-
-function kit_binder:net_spawn(se_abstract)
-    if not(object_binder.net_spawn(self, se_abstract)) then
-        return false
+function str_assemble_all(item)
+    if can_assemble(item) then
+        return "st_kit_assemble_all"
     end
-    return true
 end
 
-function kit_binder:net_destroy()
-	object_binder.net_destroy(self)
+function build_assemble(sec, all)
+    local kits = {}
+    local count = 0
+    local limit = all and 3 or inf
+    local function search(temp, item)
+        local item_sec = item:section()
+        if convert_kit(item_sec) == sec and count < limit then
+            table.insert(kits, item:id())
+            count = count + 1
+        end
+    end
+    db.actor:iterate_inventory(search)
+    -- ensure we have multiplier of 3
+    local remainder = math.fmod(#kits, 3)
+    if remainder > 0 then
+        for i=1,remainder do
+            table.remove(kits)
+        end
+    end 
+    return kits
 end
 
-function kit_binder:save(stpk)
+function assemble(item, all)
+    all = all or false
+    local kit_sec = convert_kit(item:section())
+    local ids = build_assemble(kit_sec, all)
+    local to_create = math.floor(#ids/3)
+    for i=1,#ids do
+        alife_release_id(ids[i])
+    end
+    for i=1,to_create do
+        alife_create_item(kit_sec, db.actor)
+    end
+    news_manager.send_tip(db.actor, string.format(game.translate_string("st_kit_newstip"), #ids, to_create, ui_item.get_sec_name(kit_sec)), nil, "swiss_knife", 6000)
 end
 
-function kit_binder:load(stpk)
-end 
+function assemble_all(item)
+    assemble(item, true)
+end
 
+-- upgrade/downgrade
 function try_combine(item)
     local to_search = item:section()
     local upgr_sec = SYS_GetParam(0, to_search, "upgrade")
@@ -120,21 +184,8 @@ function downgrade(item)
 end
 
 function on_game_start()
-	local ini_mapping = ini_file("items\\settings\\upgrade_mapping.ltx")
-    local n = ini_mapping:line_count("upgrade_mapping")
 
-    for i=0,n-1 do
-        result, id, value = ini_mapping:r_line_ex("upgrade_mapping",i,"","")
-        tool_map[id] = value
-        do_not_reroll[value] = true
-        workshop_autoinject.remove_existing_recipes(id)
-    end
-    
-	local ini_recipe = ini_file("items\\settings\\upgrade_recipes.ltx")
-    local m = ini_recipe:line_count("to_add")
-    
-    for i=0,m-1 do
-        result, id, value = ini_recipe:r_line_ex("to_add",i,"","")
-        workshop_autoinject.add_new_recipe(4, id, value)
-    end
+    custom_functor_autoinject.add_functor("kit_assemble", can_assemble, str_assemble, nil, assemble, false)
+    custom_functor_autoinject.add_functor("kit_assemble_all", can_assemble, str_assemble_all, nil, assemble_all, false)
+
 end

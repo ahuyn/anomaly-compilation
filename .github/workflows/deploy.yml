@@ -33,7 +33,7 @@ jobs:
           cp -r anomaly-dependencies/workshop_autoinject/gamedata "ammo maker"
           cp -r anomaly-dependencies/trader_autoinject/gamedata remote_ied
           cp -r anomaly-dependencies/workshop_autoinject/gamedata remote_ied
-          cp -r anomaly-dependencies/workshop_autoinject/gamedata streamlined_upgrades
+          cp -r anomaly-demonized-scripts/custom_functor_autoinject/gamedata streamlined_upgrades
           cp -r anomaly-dependencies/workshop_autoinject/gamedata itemsaves
 
       - name: Get current date
