@@ -11,7 +11,7 @@
 		<text>Suit Utility Package 'HPs-1'</text>
 	</string>
 	<string id="st_upgr_o_health_desc">
-		<text>Package containing assorted mechanical devices with different kinds of injectors and sterile fluid storage. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing assorted mechanical devices with different kinds of injectors and sterile fluid storage. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'HPs-1'. \n
 		</text>
 	</string>
@@ -20,7 +20,7 @@
 		<text>Suit Utility Package 'KrV'</text>
 	</string>
 	<string id="st_upgr_o_bleed_desc">
-		<text>Package containing assorted mechanical devices with different kinds of injectors and sterile fluid storage. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing assorted mechanical devices with different kinds of injectors and sterile fluid storage. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'KrV'. \n
 		</text>
 	</string>
@@ -29,7 +29,7 @@
 		<text>Suit Utility Package 'UPRz'</text>
 	</string>
 	<string id="st_upgr_o_power_desc">
-		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'UPRz'. \n</text>
 	</string>
     
@@ -37,7 +37,7 @@
 		<text>Suit Utility Package 'OSEL'</text>
 	</string>
 	<string id="st_upgr_o_carry_desc">
-		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'OSEL'. \n</text>
 	</string>
 	
@@ -45,7 +45,7 @@
 		<text>Suit Utility Package 'APTe'</text>
 	</string>
 	<string id="st_upgr_o_arty_desc">
-		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing assorted components, fastening straps, and other odds and ends. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'APTe'. \n</text>
 	</string>
 	
@@ -53,7 +53,7 @@
 		<text>Suit Utility Package 'DVgt'</text>
 	</string>
 	<string id="st_upgr_o_run_desc">
-		<text>Package containing some weird advanced hydraulic motors. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with any other two suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
+		<text>Package containing some weird advanced hydraulic motors. Stalkers tend to cobble bits and bobs together in the hopes some things may be useful for them. This package is not useful by itself, but can be combined with some other suit utility packages of the same quality to create a suit utility upgrade kit. \n \n
             The package has a label 'DVgt'. \n</text>
 	</string>
 	
@@ -62,7 +62,7 @@
 		<text>Ballistic Materials Package 'BRna'</text>
 	</string>
 	<string id="st_upgr_o_armor_desc">
-		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with any other two ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
+		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with some other ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
 			The package has a label 'BRna'. \n</text>
 	</string>
 	
@@ -70,7 +70,7 @@
 		<text>Ballistic Materials Package 'PzDH'</text>
 	</string>
 	<string id="st_upgr_o_damage_desc">
-		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with any other two ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
+		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with some other ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
 			The package has a label 'PzDH'. \n</text>
 	</string>
 	
@@ -78,7 +78,7 @@
 		<text>Ballistic Materials Package 'PRCh'</text>
 	</string>
 	<string id="st_upgr_o_durability_desc">
-		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with any other two ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
+		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with some other ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
 			The package has a label 'PRCh'. \n</text>
 	</string>
 	
@@ -86,7 +86,7 @@
 		<text>Ballistic Materials Package 'LGkY'</text>
 	</string>
 	<string id="st_upgr_o_weight_desc">
-		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with any other two ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
+		<text>Package containing various types of body armor plates and underlayers - kevlar, titanium, beryl, aluminium, polymer and carbon fibre. Small packages like these are brought in by outside armed forces to perform ad-hoc repairs and tweaking of their armored suits. This package is not useful by itself, but can be combined with some other ballistic material packages of the same quality to create a suit armor upgrade kit. \n \n
 			The package has a label 'LGkY'. \n</text>
 	</string>
 
@@ -94,7 +94,7 @@
 		<text>CBRN Materials Package 'CHM-1'</text>
 	</string>
 	<string id="st_upgr_o_chem_desc">
-		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with any other two CBRN material packages of the same quality to create a suit environmental protection upgrade kit. \n \n
+		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with some other CBRN material packages of the same quality to create a suit environmental protection upgrade kit. \n \n
             This package has a label 'CHM-1'\n
         </text>
 	</string>
@@ -103,7 +103,7 @@
 		<text>CBRN Material Package 'KHMy'</text>
 	</string>
 	<string id="st_upgr_o_burn_desc">
-		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with any other two CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
+		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with some other CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
             This package has a label 'KHMy'\n</text>
 	</string>
 	
@@ -111,7 +111,7 @@
 		<text>CBRN Material Package 'MSCh'</text>
 	</string>
 	<string id="st_upgr_o_shock_desc">
-		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with any other two CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
+		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with some other CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
             This package has a label 'MSCh'\n</text>
 	</string>
 	
@@ -119,7 +119,7 @@
 		<text>CBRN Material Package 'MZg'</text>
 	</string>
 	<string id="st_upgr_o_psi_desc">
-		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with any other two CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
+		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with some other CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
             This package has a label 'MZg'\n</text>
 	</string>
 	
@@ -127,7 +127,7 @@
 		<text>CBRN Material Package 'CHst'</text>
 	</string>
 	<string id="st_upgr_o_rad_desc">
-		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with any other two CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
+		<text>Package containing assorted clothing materials resistant to CBRN threats, high temperatures, voltages, and other threats. Small packages like these are imported by the Ministry of Science to replace parts in their protective suits, but they serve equally well to stalkers looking to enhance their ramshackle outfits. This package is not useful by itself, but can be combined with some other CBRN material packages of the same quality to create a suit environmental protection upgrade kit.\n \n
             This package has a label 'CHst'\n</text>
 	</string>
 	
@@ -138,7 +138,7 @@
 		<text>Small arms tuning package 'D-11'</text>
 	</string>
 	<string id="st_upgr_w_reliability_desc">
-		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with any other two small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
+		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with some other small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
             This package has a label 'R-11' \n</text>
 	</string>
 	
@@ -146,7 +146,7 @@
 		<text>Small arms tuning package 'K-01'</text>
 	</string>
 	<string id="st_upgr_w_recoil_desc">
-		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with any other two small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
+		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with some other small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
             This package has a label 'K-01' \n</text>
 	</string>
 	
@@ -154,7 +154,7 @@
 		<text>Small arms tuning package 'C-22'</text>
 	</string>
 	<string id="st_upgr_w_calibre_desc">
-		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with any other two small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
+		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with some other small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
             This package has a label 'C-22' \n</text>
 	</string>
 
@@ -162,7 +162,7 @@
 		<text>Small arms tuning package 'R-39'</text>
 	</string>
 	<string id="st_upgr_w_rpm_desc">
-		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with any other two small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
+		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with some other small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
             This package has a label 'R-39'\n </text>
 	</string>
 	
@@ -170,7 +170,7 @@
 		<text>Small arms tuning package 'F-23'</text>
 	</string>
 	<string id="st_upgr_w_firemode_desc">
-		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with any other two small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
+		<text>Package containing a few assorted parts for various weapons, including trigger mechanisms, bolts and carriers, recoil springs and guide rods. Replacement parts are collected by stalkers if the components are not immediately required in their weapons, either for resale or future use. This package is not useful by itself, but can be combined with some other small arms tuning packages of the same quality to create a upgrade kit for weapon mechanisms. \n \n
             This package has a label 'F-23'\n </text>
 	</string>
 
@@ -178,7 +178,7 @@
 		<text>Small arms tuning package 'W-02'</text>
 	</string>
 	<string id="st_upgr_w_weight_desc">
-		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
+		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
             This package has a label 'W-02'\n</text>
 	</string>
 	
@@ -186,7 +186,7 @@
 		<text>Small arms tuning package 'V-99'</text>
 	</string>
 	<string id="st_upgr_w_speed_desc">
-		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
+		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
             This package has a label 'V-99'\n</text>
 	</string>
 	
@@ -194,7 +194,7 @@
 		<text>Small arms tuning package 'M-45'</text>
 	</string>
 	<string id="st_upgr_w_magazine_desc">
-		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
+		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
             This package has a label 'M-45'\n</text>
 	</string>
 	
@@ -202,7 +202,7 @@
 		<text>Aftermarket parts package 'D-19'</text>
 	</string>
 	<string id="st_upgr_w_dispersion_desc">
-		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
+		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
             This package has a label 'D-19\n'</text>
 	</string>
 	
@@ -210,7 +210,7 @@
 		<text>Small arms tuning package 'H-7'</text>
 	</string>
 	<string id="st_upgr_w_inertion_desc">
-		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
+		<text>Box filled with random grips, compensators, replacement barrels and polymer furniture for various guns. No doubt a transport ordered by some Zone gunsmith or a trader. The condition of parts varies and sometimes leaves a bit to be desired, and it is clear that this kit is quite ramshackle. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n 
             This package has a label 'H-7'\n</text>
 	</string>
 	
@@ -219,7 +219,7 @@
 		<text>Firearm optics and mounts package 'SPS'</text>
 	</string>
 	<string id="st_upgr_w_muffle_desc">
-		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
+		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
             This package has a label 'SPS'\n
         </text>
 	</string>
@@ -228,7 +228,7 @@
 		<text>Firearm optics and mounts package 'Gzh-L'</text>
 	</string>
 	<string id="st_upgr_w_grenade_mount_desc">
-		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
+		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
             This package has a label 'Gzh-L'\n
         </text>
 	</string>
@@ -237,7 +237,7 @@
 		<text>Firearm optics and mounts package 'OByE'</text>
 	</string>
 	<string id="st_upgr_w_scope_desc">
-		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
+		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
             This package has a label 'OByE'\n
         </text>
 	</string>
@@ -246,7 +246,7 @@
 		<text>Firearm optics and mounts package 'MTt'</text>
 	</string>
 	<string id="st_upgr_w_scope_mount_desc">
-		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with any other two aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
+		<text>Package containing various mounting brackets (dovetail, M-LOK, Picatinny), tools to add threading to barrels, and optical sights of varying quality. Likely a second-hand collection of equipment traded for some mutant parts or artifacts. Quality is dubious, but some parts in here may be usable. This package is not useful by itself, but can be combined with some other aftermarket packages of the same quality to create a upgrade kit for the weapon body.\n \n
             This package has a label 'MTt'\n
         </text>
 	</string>

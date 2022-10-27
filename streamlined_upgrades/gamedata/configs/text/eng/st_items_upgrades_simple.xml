@@ -96,6 +96,14 @@
 		<text>assemble kits (all)</text>
 	</string>
 
+	<string id="st_kit_tooltip1">
+		<text>convert directly to a %s</text>
+	</string>
+
+	<string id="st_kit_tooltip">
+		<text>combine %s to make a %s</text>
+	</string>
+
 	<string id="st_kit_newstip">
 		<text>Assembled %s packages into %s of %s.</text>
 	</string>

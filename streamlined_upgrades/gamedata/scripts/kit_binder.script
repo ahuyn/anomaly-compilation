@@ -66,6 +66,7 @@ end
 function can_assemble(item)
     local sec = item:section()
     local type = convert_kit(sec)
+    local amt = ini_mapping:r_float_ex(sec, "amt") or 3
     if not type then return false end
     local num_kits = 0
     local function search(temp, item)
@@ -75,7 +76,7 @@ function can_assemble(item)
         end
     end
     db.actor:iterate_inventory(search)
-    return num_kits >= 3
+    return num_kits >= amt
 end
 
 function str_assemble(item)
@@ -90,10 +91,10 @@ function str_assemble_all(item)
     end
 end
 
-function build_assemble(sec, all)
+function build_assemble(sec, amt, all)
     local kits = {}
     local count = 0
-    local limit = all and 3 or inf
+    local limit = all and inf or amt
     local function search(temp, item)
         local item_sec = item:section()
         if convert_kit(item_sec) == sec and count < limit then
@@ -103,7 +104,7 @@ function build_assemble(sec, all)
     end
     db.actor:iterate_inventory(search)
     -- ensure we have multiplier of 3
-    local remainder = math.fmod(#kits, 3)
+    local remainder = math.fmod(#kits, amt)
     if remainder > 0 then
         for i=1,remainder do
             table.remove(kits)
@@ -114,16 +115,18 @@ end
 
 function assemble(item, all)
     all = all or false
-    local kit_sec = convert_kit(item:section())
-    local ids = build_assemble(kit_sec, all)
-    local to_create = math.floor(#ids/3)
+    local sec = item:section()
+    local kit_sec = convert_kit(sec)
+    local amt = ini_mapping:r_float_ex(sec, "amt") or 3
+    local ids = build_assemble(kit_sec, amt, all)
+    local to_create = math.floor(#ids/amt)
     for i=1,#ids do
         alife_release_id(ids[i])
     end
     for i=1,to_create do
         alife_create_item(kit_sec, db.actor)
     end
-    news_manager.send_tip(db.actor, string.format(game.translate_string("st_kit_newstip"), #ids, to_create, ui_item.get_sec_name(kit_sec)), nil, "swiss_knife", 6000)
+    news_manager.send_tip(db.actor, string.format(gc("st_kit_newstip"), #ids, to_create, ui_item.get_sec_name(kit_sec)), nil, "swiss_knife", 6000)
 end
 
 function assemble_all(item)
@@ -132,13 +135,14 @@ end
 
 -- upgrade/downgrade
 function try_combine(item)
-    local to_search = item:section()
-    local upgr_sec = SYS_GetParam(0, to_search, "upgrade")
+    local sec = item:section()
+    local amt = ini_mapping:r_float_ex(sec, "amt") or 3
+    local upgr_sec = SYS_GetParam(0, sec, "upgrade")
     if not upgr_sec then return end
     local num_item = 0
     local function search(temp, item)
         local item_section = item:section()
-        if item_section == to_search then
+        if item_section == sec then
             num_item = num_item + 1
         end
     end
@@ -181,6 +185,22 @@ function downgrade(item)
         alife_release_id(item:id())
         alife_create_item(down_sec, db.actor)
     end
+end
+
+
+local clr_2  = utils_xml.get_color("ui_gray_2")
+local clr_p  = utils_xml.get_color("d_purple")
+
+BuildFooter = ui_item.build_desc_footer
+function ui_item.build_desc_footer(obj, sec, str)
+    _str = BuildFooter(obj, sec, str)
+    sec = obj and obj:section() or sec
+    local kit = convert_kit(sec)
+    if not kit then return _str end
+    local amt = ini_mapping:r_float_ex(sec, "amt") or 3
+    local str = amt == 1 and string.format(gc("st_kit_tooltip1"), ui_item.get_sec_name(kit)) or string.format(gc("st_kit_tooltip"), amt, ui_item.get_sec_name(kit))
+    _str = _str .."  " .. clr_p .. gc("st_dot") .. " " .. clr_2 .. str .. "\\n"
+    return _str
 end
 
 function on_game_start()
