@@ -1,0 +1,115 @@
+
+UpdateItem = ui_workshop.UIWorkshopCraft.UpdateItem
+function ui_workshop.UIWorkshopCraft:UpdateItem(n, sec, amount, result, toolkit_idx, toolkit_sec)
+    if self.quantity and self.quantity > 1 then
+        amount = amount * self.quantity
+    end
+    UpdateItem(self, n, sec, amount, result, toolkit_idx, toolkit_sec)
+    if self.quantity and self.quantity > 1 then
+        if IsItem("ammo",sec) then
+			amount_txt = tostring(IsItem("ammo",sec) * amount) or ""
+            self.itm_num_r:SetText(amount_txt)
+        elseif IsItem("multiuse",sec) then
+            local uses = ini_sys:r_float_ex(sec,"max_uses") or amount
+            uses = uses * self.quantity
+            amount_txt = tostring(uses) or ""
+            self.itm_num_r:SetText(amount_txt)
+		end
+    end
+end
+
+function update_components(ui)
+    local item = ui.last_type and ui.last_index and ui.recipes[ui.last_type] and ui.recipes[ui.last_type][ui.last_index]
+	if (not item) then
+		return
+	end
+    
+	if (not ui.recipes_items[item.rsp]) then
+		SetTip(nil, "craft_warning_2", "craft_solution_2", item.sec, false, ui.info_text)
+		ui:ShowComponents(false)
+		return
+	end
+	
+	utils_obj.play_sound("interface\\items\\inv_items_cloth_" .. tostring(math.random(2,3)))
+	
+	-- Reset
+	ui.craft_item = {}
+	ui.craft_item_remain = {}
+	ui.craft_allow = {}
+	ui.craft_item_r = nil
+	ui.craft_allow_r = nil
+	ui.selected_index = ui.last_index
+
+	for i=1,4 do
+		local sh = false
+		if item[i] then
+			sh = true
+		end
+		ui.itm_line[i]:Show(sh)
+		ui.itm_b[i]:Show(sh)
+		ui.itm_name[i]:Show(sh)
+		ui.itm_num[i]:Show(sh)
+		ui.itm_ico[i]:Show(sh)
+		if i > 1 then
+			ui.itm_line_c[i]:Show(sh)
+		end
+		
+		if item[i] then
+			ui:UpdateItem(i, item[i][1], item[i][2], false, nil, nil)
+		end
+	end
+	
+	ui.cap_components:Show(true)
+	ui.itm_line_r1:Show(true)
+	--ui.itm_line_r2:Show(true)
+	ui.itm_line_r3:Show(true)
+	
+	ui.itm_b_r:Show(true)
+	ui.itm_name_r:Show(true)
+	ui.itm_num_r:Show(true)
+	ui.itm_ico_r:Show(true)
+	ui.cap_r:Show(true)
+	
+	ui.itm_name_t:Show(true)
+	ui.itm_b_t:Show(true)
+	ui.itm_ico_t:Show(true)
+	ui.itm_ico_temp_t:Show(true)
+	
+	ui:UpdateItem(nil, item.sec, 1, true, item.tool, ui_workshop.workshop_toolkits[item.tool])
+end
+
+--[[
+200 up
+208 down
+203 left
+205 right
+]]
+WSOnKeyboard = ui_workshop.UIWorkshopCraft.OnKeyboard
+function ui_workshop.UIWorkshopCraft:OnKeyboard(dik, keyboard_action)
+	local res = CUIScriptWnd.OnKeyboard(self,dik,keyboard_action)
+	if (res == false) and keyboard_action == 11 and self.last_index then
+        if not self.quantity then self.quantity = 1 end
+        if dik == 200 or dik == 205 then
+            self.quantity = clamp(self.quantity + 1, 1, 10)
+            update_components(self)
+        elseif dik == 208 or dik == 203 then
+            self.quantity = clamp(self.quantity - 1, 1, 10)
+            update_components(self)
+        end
+    end
+    WSOnKeyboard(self, dik, keyboard_action)
+end
+
+Mouse = ui_workshop.UIWorkshopCraft.On_CC_Mouse1
+function ui_workshop.UIWorkshopCraft:On_CC_Mouse1(cont, idx)
+    if idx ~= self.last_index then
+        self.quantity = 1
+    end
+    Mouse(self, cont, idx)
+end
+
+Close = ui_workshop.UIWorkshopCraft.Close
+function ui_workshop.UIWorkshopCraft:Close()
+    Close(self)
+    self.quantity = nil
+end
