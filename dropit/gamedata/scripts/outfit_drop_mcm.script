@@ -12,13 +12,13 @@ local default_chances = {
 
 function on_mcm_load()
     op = { id= "outfitdrop",sh=true ,gr={
-        {id = "helmet_light_chance", type = "track", val = 2, min=5,max=100,step=1, def = 70},
-        {id = "helmet_chance", type = "track", val = 2, min=5,max=100,step=1, def = 30},
-        {id = "outfit_light_chance", type = "track", val = 2, min=5,max=100,step=1, def = 70},
-        {id = "outfit_medium_chance", type = "track", val = 2, min=5,max=100,step=1, def = 50},
-        {id = "outfit_heavy_chance", type = "track", val = 2, min=5,max=100,step=1, def = 30},
-        {id = "outfit_exo_chance", type = "track", val = 2, min=5,max=100,step=1, def = 10},
-        {id = "parts_chance", type = "track", val = 2, min=5,max=100,step=1, def = 80},
+        {id = "helmet_light_chance", type = "track", val = 2, min=0,max=100,step=1, def = 70},
+        {id = "helmet_chance", type = "track", val = 2, min=0,max=100,step=1, def = 30},
+        {id = "outfit_light_chance", type = "track", val = 2, min=0,max=100,step=1, def = 70},
+        {id = "outfit_medium_chance", type = "track", val = 2, min=0,max=100,step=1, def = 50},
+        {id = "outfit_heavy_chance", type = "track", val = 2, min=0,max=100,step=1, def = 30},
+        {id = "outfit_exo_chance", type = "track", val = 2, min=0,max=100,step=1, def = 10},
+        {id = "parts_chance", type = "track", val = 2, min=0,max=100,step=1, def = 80},
         {id = "debug", type = "check", val = 1, def=false},
 
     }
