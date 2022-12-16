@@ -7,7 +7,9 @@ function ui_workshop.UIWorkshopCraft:UpdateItem(n, sec, amount, result, toolkit_
     UpdateItem(self, n, sec, amount, result, toolkit_idx, toolkit_sec)
     if self.quantity and self.quantity > 1 then
         if IsItem("ammo",sec) then
-			amount_txt = tostring(IsItem("ammo",sec) * amount) or ""
+			local quant = IsItem("ammo",sec) * amount
+			amount_txt = quant and tostring(quant) or ""
+			if self.craft_item_r then self.craft_item_r[2] = quant end
             self.itm_num_r:SetText(amount_txt)
         elseif IsItem("multiuse",sec) then
             local uses = ini_sys:r_float_ex(sec,"max_uses") or amount
@@ -102,10 +104,11 @@ end
 
 Mouse = ui_workshop.UIWorkshopCraft.On_CC_Mouse1
 function ui_workshop.UIWorkshopCraft:On_CC_Mouse1(cont, idx)
-    if idx ~= self.last_index then
+    Mouse(self, cont, idx)    
+	if idx ~= self.last_index then
+		printf("Resetting to 1")
         self.quantity = 1
     end
-    Mouse(self, cont, idx)
 end
 
 Close = ui_workshop.UIWorkshopCraft.Close
